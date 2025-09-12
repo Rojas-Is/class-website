@@ -2,7 +2,6 @@ import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from
 // import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 import pluginFilters from "./_config/filters.js";
 import markdownItFootnote from "markdown-it-footnote";
@@ -24,6 +23,10 @@ export default async function(eleventyConfig) {
   const mdLib = markdownIt({ html: true });
   eleventyConfig.setLibrary("md", mdLib);
 
+	eleventyConfig.addCollection("problems", function(collectionApi) {
+		return collectionApi.getFilteredByGlob("content/F25/MAT4111A/problems/*.md");
+	});
+
 	eleventyConfig.addPairedShortcode("md", (content) => {
     return mdLib.render(content);
   });
@@ -33,6 +36,7 @@ export default async function(eleventyConfig) {
 		.addPassthroughCopy({"./public/": "/"})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl")
 		.addPassthroughCopy("./content/**/*.tex")
+		.addPassthroughCopy("./content/assets/*.png")
 		.addPassthroughCopy("./content/assets/favicon.svg")
 	;
 
@@ -94,27 +98,6 @@ export default async function(eleventyConfig) {
 	// 		}
 	// 	}
 	// });
-
-	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
-	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-		// Output formats for each image.
-		formats: ["avif", "webp", "auto"],
-
-		// widths: ["auto"],
-
-		failOnError: false,
-		htmlOptions: {
-			imgAttributes: {
-				// e.g. <img loading decoding> assigned on the HTML tag will override these values.
-				loading: "lazy",
-				decoding: "async",
-			}
-		},
-
-		sharpOptions: {
-			animated: true,
-		},
-	});
 
 	// Filters
 	eleventyConfig.addPlugin(pluginFilters);
