@@ -240,7 +240,7 @@ If there are any changes that I can make this course more accessible to you, I a
     <td>September 3rd</td>
     <td>
       What is proof?<br>
-      <i>Homework 0 due on Thursday, September 4th at 8:00PM on Gradescope.</i>
+      <i>HW 0 due on Thursday, 9/4 at 8PM.</i>
     </td>
   </tr>
 
@@ -255,20 +255,25 @@ If there are any changes that I can make this course more accessible to you, I a
     <td>
       Strong induction
       <br>
-      <i>Homework 1 due on Thursday, September 11th at 8:00PM on Gradescope.</i>
+      <i>HW 1 due on Thursday, 9/11 at 8PM.</i>
     </td>
   </tr>
 
   <tr>
     <td rowspan="2">4</td>
     <td>September 15th</td>
-    <td></td>
+    <td>
+      Direct proofs: divisibility and modular arithmetic.
+    </td>
   </tr>
   <tr>
     <td style="display:none"></td>
     <td>September 17th</td>
-    <td><i>Homework 2 due on Thursday, September 18th at 8:00PM on Gradescope.</i></td>
-
+    <td>
+      $\LaTeX$ workshop
+      <br>
+      <i>HW 2 due on Thursday, 9/18 at 8PM.</i>
+    </td>
   </tr>
 
   <tr>
@@ -279,7 +284,7 @@ If there are any changes that I can make this course more accessible to you, I a
   <tr>
     <td style="display:none"></td>
     <td>September 24th</td>
-    <td><i>Homework 3 due on Thursday, September 25th at 8:00PM on Gradescope.</i></td>
+    <td><i>HW 3 due on Thursday, 9/25 at 8PM.</i></td>
   </tr>
 
   <tr>
@@ -290,7 +295,7 @@ If there are any changes that I can make this course more accessible to you, I a
   <tr>
     <td style="display:none"></td>
     <td>October 1st</td>
-    <td><i>Homework 4 due on Thursday, October 2nd at 8:00PM on Gradescope.</i></td>
+    <td><i>HW 4 due on Thursday, 10/2 at 8PM.</i></td>
 
   </tr>
 
@@ -302,7 +307,7 @@ If there are any changes that I can make this course more accessible to you, I a
   <tr>
     <td style="display:none"></td>
     <td>October 8th</td>
-    <td><i>Homework 5 due on Thursday, October 9th at 8:00PM on Gradescope.</i></td>
+    <td><i>HW 5 due on Thursday, 10/9 at 8PM.</i></td>
 
   </tr>
 
@@ -314,7 +319,7 @@ If there are any changes that I can make this course more accessible to you, I a
   <tr>
     <td style="display:none"></td>
     <td>October 15th</td>
-    <td><i>Homework 6 due on Thursday, October 16th at 8:00PM on Gradescope.</i></td>
+    <td><i>HW 6 due on Thursday, 10/16 at 8PM.</i></td>
   </tr>
 
   <tr>
@@ -325,7 +330,7 @@ If there are any changes that I can make this course more accessible to you, I a
   <tr>
     <td style="display:none"></td>
     <td>October 22nd</td>
-    <td><i>Homework 7 due on Thursday, October 23rd at 8:00PM on Gradescope.</i></td>
+    <td><i>HW 7 due on Thursday, 10/23 at 8PM.</i></td>
 
   </tr>
   <tr>
@@ -336,7 +341,7 @@ If there are any changes that I can make this course more accessible to you, I a
   <tr>
     <td style="display:none"></td>
     <td>October 29th</td>
-    <td><i>Homework 8 due on Thursday, October 30th at 8:00PM on Gradescope.</i></td>
+    <td><i>HW 8 due on Thursday, 10/30 at 8PM.</i></td>
 
   </tr>
   <!-- <tr>
@@ -352,7 +357,9 @@ If there are any changes that I can make this course more accessible to you, I a
   <tr>
     <td style="display:none"></td>
     <td>November 5th</td>
-    <td><i>Homework 9 due on Thursday, November 6th at 8:00PM on Gradescope.</i></td>
+    <td>
+      <i>HW 9 due on Thursday, 11/6th at 8PM.</i>
+    </td>
 
   </tr>
 
@@ -364,7 +371,7 @@ If there are any changes that I can make this course more accessible to you, I a
   <tr>
     <td style="display:none"></td>
     <td>November 12th</td>
-    <td><i>Homework 10 due on Thursday, November 13th at 8:00PM on Gradescope.</i></td>
+    <td><i>HW 10 due on Thursday, 11/13th at 8PM.</i></td>
   </tr>
 
   <tr>
@@ -375,7 +382,7 @@ If there are any changes that I can make this course more accessible to you, I a
   <tr>
     <td style="display:none"></td>
     <td>November 19th</td>
-    <td><i>Term paper due Thursday, November 20th at 8PM on Gradescope.</i></td>
+    <td><i>Term paper due Thursday, 11/20th at 8PM.</i></td>
   </tr>
 
   <tr>
