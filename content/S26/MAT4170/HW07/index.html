@@ -1,0 +1,239 @@
+---
+title: HW 7
+type: assignment
+number: 7
+courseNumber: MAT4170
+term: S26
+date: 2026-03-26
+layout: layouts/hw.njk
+---
+<h2>Goals</h2>
+<ul>
+  <li>Practice with conjugacy classes</li>
+  <li>Check for misconceptions</li>
+  <li>Make a physical model of a group</li>
+  <li>See a cool Cayley diagram</li>
+  <li>Explore various generators of \(S_n\)</li>
+</ul>
+<!-- <h2>Change log</h2>
+<ul>
+  <li><i>(2026-xx-xx xx:xx)</i>[...]</li>
+</ul> -->
+<hr>
+<details open>
+  <summary>
+    Exercise 1 [2]
+    <span style="font-size: small;"></span>
+  </summary>
+  <ol>
+    <li>
+      Fill out the following and tag it as Exercise 1: <pre><code>\section*{Exercise 1}
+Collaborators: Alex, Ross, Margaret, Joan
+
+\noindent
+Tools and resources used: On Exercise 1, I used ChatGPT to help me figure out how to [...]. On Choice Exercise 7, I watched a YouTube video to [...].
+\pagebreak</code></pre>
+      You don't need to include class notes or textbooks under "tools and resources."
+    </li>
+    <li>
+      On <em>each</em> individual exercise you attempt (both required and choice) start with a header based on this template. (Make sure that the denominator of the "self-assessed score" matches the number of points attempted.)
+      <code><pre>\section*{Choice Exercise 5}
+\begin{itemize}
+  \item Points attempted: 7
+  \item Self-assessed score: 6/7.
+  \item Time spent: 56 minutes.
+  \item Difficulty: 8/10.
+  \item Questions/Feedback: None.
+\end{itemize}</pre></code>
+    </li>
+    <li>
+      Choose one or more problems that you would most like feedback on, and indicate this under the "questions/feedback" bullet with a brief note of what you would most like me to focus on. (This could be "mathematical correctness," "grammar," "notation," "formatting," or anything else.)
+    </li>
+  </ol>
+</details>
+
+<details open>
+  <summary>Exercise 2 [2 + 2 + 3]</summary>
+  <ol>
+    <li>[2]
+      Read Tai-Danae Bradley's blog post <a href="https://www.math3ma.com/blog/whats-a-quotient-group-really-part-1">What's a Quotient Group, Really? Part 1</a>. (Professor Bradley wrote this blog when she was in graduate school, and her blog was a part of the motivation for doing a blog post as the term paper in this class.)
+    </li>
+    <li>[2]
+      Go to the <a href="https://discord.com/channels/1463302619110969458/1483594579071467591"><code>Glossary</code> thread on the <code>#hw-prompt</code> channel on our class Discord</a>, and scroll to the top of the thread to access the Overleaf glossary page. Do <i>one</i> of the following:
+      <ol>
+        <li>Add or finish a definition or theorem, following the pattern shown in the examples, and make sure it appears in the table of contents.</li>
+        <li>Fix a typo or improve the typesetting.</li>
+      </ol>
+      Once you've done this, post on the <code>Glossary</code> thread with the definition or theorem that you added or improved, and include it in your write-up.
+    </li>
+    <li>
+      Do at least <em>three</em> of the following for your blog: <ol>
+        <li>
+          Write an outline of what your blog post is going to be about.
+        </li>
+        <li>
+          Write two paragraphs explaining a core concept or idea.
+        </li>
+        <li>
+          Include an illustration, or a plan for how you will make your illustration.
+        </li>
+        <li>
+          Ask a question about something I can help you with, the more concrete the better.
+        </li>
+        <li>
+          Talk to someone in your group for at least ten minutes and bounce ideas off of each other.
+        </li>
+        <li>
+          Learn how to write some basic markdown by making a file called <code>blog_post.md</code>, and including it in your LaTeX document with <code>\usepackage[settings]{markdown}</code>. <a href="https://www.overleaf.com/learn/how-to/Writing_Markdown_in_LaTeX_Documents">You can read more about this here.</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</details>
+
+<details open>
+  <summary>Exercise 3 [6]</summary>
+  <i>This is a long exercise, but it is only worth six points because you can do this problem by following along with the asynchronous lecture which will be available before Monday at 3PM.</i>
+  <p>
+    Let $G$ be a group. Then we say that $a \in G$ is conjugate to $b \in G$ if there exists $g \in G$ such that $a = g b g^{-1}$. The relation <em>is conjugate to</em> is an equivalence relation, so it allows us to partition $G$ into equivalence classes (which we call conjugacy classes).
+  </p>
+  <p>
+    Intuitively, $a$ and $b$ are conjugate if performing $a$ from one perspective is the same as performing $b$ from another perspective.
+    As an example, a horizontal flip and a vertical flip of a square are conjugate in $D_4$ because if you're standing $90^\circ$ to the right of me and I do a horizontal flip of the square, it will look like a vertical flip from your perspective&mdash;but a horizontal flip to me will never look like a $180^\circ$ rotation to you.
+  </p>
+  <p>
+    In the following exercises you will be looking at conjugacy classes of the symmetry group of the hexagon.
+  </p>
+  <ol>
+    <li>
+      Prove that $e$ is in its own conjugacy class.
+    </li>
+    <li>
+      Find an example of $g \in D_6$ such that $r^2 = g r^4 g^{-1}$.
+    </li>
+    <li>
+      Find an example of $g \in D_6$ such that $f = g r^2f g^{-1}$.
+    </li>
+    <li>
+      Prove that if $\phi\colon D_6 \to H$ is a homomorphism, and $g_1$ is conjugate to $g_2$ in $D_6$, then $\phi(g_1)$ is conjugate to $\phi(g_2)$ in $H$.
+    </li>
+    <li>
+      Prove that if $\phi\colon D_6 \to H$ is a homomorphism, $H$ is an abelian group, and $g_1$ is conjugate to $g_2$ in $D_6$, then $\phi(g_1) = \phi(g_2)$.
+    </li>
+    <li>
+      Let $\Phi\colon D_6 \to \mathbb{Z}/2\mathbb{Z}$ be defined by $\Phi(r) = 0$ and $\Phi(f) = 1$, and use this to show that $r^nf$ is not conjugate to $r^m$ for any integers $n$ and $m$.
+    </li>
+    <li>
+      Let $\psi\colon D_6 \to \mathbb{Z}/2\mathbb{Z}$ be defined by $\psi(r) = 1$ and $\psi(f) = 0$, and use this to prove that none of the elements in $\{r, rf, r^3, r^3f, r^5, r^5f\}$ are conjugate to any of the elements in $\{e, f, r^2, r^2f, r^4, r^4f\}$.
+    </li>
+    <li>
+      Let $\varphi\colon D_6 \to S_3$ be the homomorphism defined by $\varphi(f) = (1\ 2)$ and $\varphi(r) = (1\ 2\ 3)$. Note that $S_3$ is <i>not</i> an abelian group, but use this homomorphism to show that $r^3 \in D_6$ is in its own equivalence class.
+    </li>
+    <li>
+      Partition the dihedral group of the hexagon \[
+        D_6 = \langle r, f \mid r^6 = f^2 = (rf)^2 = e \rangle
+      \] into conjugacy classes. You don't have to prove every piece of this, but you do have to make a note of any claims that you made that you didn't prove.
+    </li>
+  </ol>
+</details>
+
+<h2>Choice Exercises</h2>
+<p><i>Do 10 points of the following.</i></p>
+
+<details open>
+    <summary>
+    Choice Exercise 4 [3 + 3]
+    <span style="font-size: small;">(review/practice)</span>
+  </summary>
+  <ol>
+    <li>[3]
+      Set a timer for 24 minutes, and read/watch Goodman, Judson, Matsuura, Macauley, or Chen (which can all be found on the syllabus). When the timer goes off, write 3+ sentences about what you learned, didn't understand, or wonder about.
+    </li>
+    <li>[3]
+      Find a proof from the lecture that you didn't fully understand. Set a timer for 20 minutes, work with it and try to reproduce it to the best of your ability. When the timer goes off, write down any questions you still have.
+    </li>
+    <li>[5]
+      Do the following exercises about quotienting $(\mathbb{R},+)$.
+      <ol>
+        <li>
+          Prove that the set of rotation matrices \[
+            SO_2(\mathbb{R}) = \left\{\begin{pmatrix}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix}\middle|\, \theta \in \mathbb{R} \right\}
+          \] forms a group under matrix multiplication.
+        </li>
+        <li>
+          Prove that the map $\phi \colon \mathbb{R} \to SO_2(\mathbb{R})$ given by \[
+            \phi(x) = \begin{pmatrix}\cos(2\pi x) & -\sin(2\pi x) \\ \sin(2\pi x) & \cos(2\pi x) \end{pmatrix}
+          \]
+          is a homomorphism but not an isomorphism.
+        </li>
+        <li>
+          Determine the kernel and image of $\phi$.
+        </li>
+        <li>
+          What group is $\mathbb{R}/\ker(\phi)$ isomorphic to?
+        </li>
+      </ol>
+    </li>
+  </ol>
+</details>
+
+<details open>
+  <summary>
+    Choice Exercise 5 [≤13]
+    <span style="font-size: small;">(true/false)</span>
+  </summary>
+  {% include 'content/S26/MAT4170/HW07/_choice_exercise_true_false.html' %}
+</details>
+
+<details>
+  <summary>
+    Choice Exercise 6 [10] ⭐️⭐️⭐️⭐️
+    <span style="font-size: small;">(Tetrahedron group)</span>
+  </summary>
+  <i>Last time four students chose this as their favorite choice exercise.</i>
+  {% include 'content/S26/MAT4170/HW07/_choice_exercise_tetrahedron_group.html' %}
+</details>
+<details>
+  <summary>
+    Choice Exercise 7 [5+5+11] ⭐️
+    <span style="font-size: small;">(Free group + programming)</span>
+  </summary>
+  <i>Last time one student chose this as their favorite choice exercise.</i>
+  {% include 'content/S26/MAT4170/HW07/_choice_exercise_free_group.html' %}
+</details>
+
+<details>
+  <summary>
+    Choice Exercise 8 [≤13] ⭐️
+    <span style="font-size: small;">(Generating \(S_n\))</span>
+  </summary>
+  <i>Last time one student chose this as their favorite choice exercise.</i>
+  {% include 'content/S26/MAT4170/HW07/_choice_exercise_adjacent_transpositions.html' %}
+</details>
+
+<details open>
+  <summary>Final Choice Exercise [≤7]</summary>
+  <i>Do any subset of the following parts, state which you did and how many points you are claiming for this problem (maximum of 7 points).</i>
+  <ol>
+    <li>[≤3] Email Prof Kagey (pkagey@cpp.edu) or post in the <code>#feedback</code> channel on Discord with a typo that you have spotted in this assignment or with a suggestion about how to make something clearer. (One point for every six minutes that the typo got you stuck, with a maximum of three points.)</li>
+    <li>[≤2] Ask a question on Discord. (One point per question, up to 2.)</li>
+    <li>[≤4] Answer a classmate's question on Discord or give a hint about a problem on this week's assignment.<a id="ref-asterisk" href="#label-asterisk"><sup>*</sup></a> (Two points per answer/hint, up to 4.)</li>
+    <li>[≤4] Can you generalize any of the above problems in an interesting way? If so say what the generalization is, attempt to solve it, say something about it, and say how many points you feel like your effort was worth, up to 4.</li>
+    <li>[≤4] Choose one or more problems from our textbook or a previous homework assignment which interest you and write the problem statement along with an answer. Say how many points you feel like your effort was worth, up to 4.</li>
+    <li>[2] Stop by student drop-in hours.</li>
+    <li>[2 or 5] Work on at least one of the above exercises with a classmate. State which classmate you worked with and which exercises you collaborated on. If you've collaborated with someone for the first time, you get 5 points, if you've collaborated with someone before, you get 2 points for working with them again.</li>
+    <li>[2] Turn in the assignment on time (without requesting an extension).</li>
+  </ol>
+</details>
+
+<hr>
+<ol class="footnotes">
+  <!-- <li id="label-1">
+    [...]
+    <a href="#ref-1">⏎</a>
+  </li> -->
+  <li id="label-asterisk">
+    The syntax for a hint on Discord is double bars <code>||</code> on each side of the spoiler like this: <code>Remember that ||1 + x &lt; x + 2||.</code>
+    <a href="#ref-asterisk">⏎</a>
+  </li>
+</ol>

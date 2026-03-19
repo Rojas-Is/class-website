@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     16927,        395]
-NotebookOptionsPosition[     16002,        371]
-NotebookOutlinePosition[     16422,        388]
-CellTagsIndexPosition[     16379,        385]
+NotebookDataLength[     18151,        424]
+NotebookOptionsPosition[     17197,        398]
+NotebookOutlinePosition[     17616,        415]
+CellTagsIndexPosition[     17573,        412]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,11 +23,14 @@ Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
   RowBox[{
-   RowBox[{"curvature", "[", "t_", "]"}], ":=", "3"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"curvature", "[", "s_", "]"}], ":=", "s"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"torsion", "[", "t_", "]"}], ":=", "1"}], 
-  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"torsion", "[", "s_", "]"}], ":=", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ";"}], 
+  RowBox[{"(*", " ", 
    RowBox[{
     RowBox[{
      RowBox[{"When", " ", "\[Tau]"}], "=", "0"}], ",", " ", 
@@ -37,10 +40,9 @@ Cell[BoxData[{
       "you", " ", "have", " ", "to", " ", "use", " ", "the", " ", "hack", " ",
         "that", " ", "\[Tau]"}], " ", "=", " ", 
       RowBox[{"{", 
-       RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ";"}]}], "*)"}]}], "\[IndentingNewLine]", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ";"}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"tMax", "=", 
-   RowBox[{"4", "\[Pi]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"tMax", "=", "1000"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"deqSol", "=", 
    RowBox[{
@@ -50,7 +52,7 @@ Cell[BoxData[{
        RowBox[{
         RowBox[{
          RowBox[{
-          RowBox[{"\[Gamma]", "'"}], "[", "t", "]"}], "==", 
+          RowBox[{"gamma", "'"}], "[", "t", "]"}], "==", 
          RowBox[{"Tv", "[", "t", "]"}]}], ",", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{
@@ -80,36 +82,34 @@ Cell[BoxData[{
          RowBox[{"Tv", "[", "0", "]"}], "==", 
          RowBox[{"Normalize", "[", 
           RowBox[{"{", 
-           RowBox[{"0", ",", "1", ",", "1"}], "}"}], "]"}]}], ",", 
+           RowBox[{"1", ",", "0", ",", "0"}], "}"}], "]"}]}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"Nv", "[", "0", "]"}], "==", 
          RowBox[{"Normalize", "[", 
           RowBox[{"{", 
-           RowBox[{
-            RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}], "]"}]}], ",", 
+           RowBox[{"0", ",", "1", ",", "0"}], "}"}], "]"}]}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"Bv", "[", "0", "]"}], "==", 
          RowBox[{"Normalize", "[", 
           RowBox[{"{", 
-           RowBox[{"0", ",", 
-            RowBox[{"-", "1"}], ",", "1"}], "}"}], "]"}]}], ",", 
+           RowBox[{"0", ",", "0", ",", "1"}], "}"}], "]"}]}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{
-         RowBox[{"\[Gamma]", "[", "0", "]"}], "==", 
+         RowBox[{"gamma", "[", "0", "]"}], "==", 
          RowBox[{"{", 
           RowBox[{"0", ",", "0", ",", "0"}], "}"}]}]}], "\[IndentingNewLine]",
         "}"}], ",", 
       RowBox[{"{", 
-       RowBox[{"\[Gamma]", ",", "Tv", ",", "Nv", ",", "Bv"}], "}"}], ",", 
+       RowBox[{"gamma", ",", "Tv", ",", "Nv", ",", "Bv"}], "}"}], ",", 
       RowBox[{"{", 
        RowBox[{"t", ",", "0", ",", "tMax"}], "}"}], ",", 
       RowBox[{"AccuracyGoal", "->", "10"}]}], "]"}], "[", 
     RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"\[Gamma]f", "=", 
-   RowBox[{"\[Gamma]", "/.", "deqSol"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"gammaf", "=", 
+   RowBox[{"gamma", "/.", "deqSol"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Tf", "=", 
    RowBox[{"Tv", "/.", "deqSol"}]}], ";"}], "\[IndentingNewLine]", 
@@ -129,7 +129,7 @@ Cell[BoxData[{
         RowBox[{
          RowBox[{"ParametricPlot3D", "[", 
           RowBox[{
-           RowBox[{"\[Gamma]f", "[", "t", "]"}], ",", 
+           RowBox[{"gammaf", "[", "t", "]"}], ",", 
            RowBox[{"{", 
             RowBox[{"t", ",", "0", ",", "tMax"}], "}"}], ",", 
            RowBox[{"BoxRatios", "->", "Automatic"}]}], "]"}], ",", 
@@ -139,61 +139,56 @@ Cell[BoxData[{
            RowBox[{
             RowBox[{"PointSize", "[", "0.03", "]"}], ",", "Red", ",", 
             RowBox[{"Point", "[", 
-             RowBox[{"\[Gamma]f", "[", "s", "]"}], "]"}]}], "}"}], "]"}], ",",
-          "\[IndentingNewLine]", 
-         RowBox[{"(*", 
-          RowBox[{
-           RowBox[{"Graphics3D", "[", 
-            RowBox[{"{", 
-             RowBox[{"Black", ",", 
-              RowBox[{"Opacity", "[", "0.3", "]"}], ",", 
-              RowBox[{"InfinitePlane", "[", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"\[Gamma]f", "[", "s", "]"}], ",", 
-                 RowBox[{
-                  RowBox[{"\[Gamma]f", "[", "s", "]"}], "+", 
-                  RowBox[{"Tf", "[", "s", "]"}]}], ",", 
-                 RowBox[{
-                  RowBox[{"\[Gamma]f", "[", "s", "]"}], "+", 
-                  RowBox[{"Nf", "[", "s", "]"}]}]}], "}"}], "]"}]}], "}"}], 
-            "]"}], ","}], "*)"}], "\[IndentingNewLine]", 
-         RowBox[{"(*", 
-          RowBox[{
-           RowBox[{"Graphics3D", "[", 
-            RowBox[{"{", "\[IndentingNewLine]", 
-             RowBox[{"Red", ",", 
-              RowBox[{"Arrow", "@", 
-               RowBox[{"Tube", "[", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"\[Gamma]f", "[", "s", "]"}], ",", 
-                  RowBox[{
-                   RowBox[{"\[Gamma]f", "[", "s", "]"}], "+", 
-                   RowBox[{"Tf", "[", "s", "]"}]}]}], "}"}], "]"}]}], ",", 
-              "\[IndentingNewLine]", "Green", ",", 
-              RowBox[{"Arrow", "@", 
-               RowBox[{"Tube", "[", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"\[Gamma]f", "[", "s", "]"}], ",", 
-                  RowBox[{
-                   RowBox[{"\[Gamma]f", "[", "s", "]"}], "+", 
-                   RowBox[{"Nf", "[", "s", "]"}]}]}], "}"}], "]"}]}], ",", 
-              "\[IndentingNewLine]", "Blue", ",", 
-              RowBox[{"Arrow", "@", 
-               RowBox[{"Tube", "[", 
-                RowBox[{"{", 
-                 RowBox[{
-                  RowBox[{"\[Gamma]f", "[", "s", "]"}], ",", 
-                  RowBox[{
-                   RowBox[{"\[Gamma]f", "[", "s", "]"}], "+", 
-                   RowBox[{"Bf", "[", "s", "]"}]}]}], "}"}], "]"}]}]}], 
-             "\[IndentingNewLine]", "}"}], "]"}], ","}], "*)"}], 
+             RowBox[{"gammaf", "[", "s", "]"}], "]"}]}], "}"}], "]"}], ",", 
          "\[IndentingNewLine]", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", 
+            RowBox[{"Opacity", "[", "0.3", "]"}], ",", 
+            RowBox[{"InfinitePlane", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"gammaf", "[", "s", "]"}], ",", 
+               RowBox[{
+                RowBox[{"gammaf", "[", "s", "]"}], "+", 
+                RowBox[{"Tf", "[", "s", "]"}]}], ",", 
+               RowBox[{
+                RowBox[{"gammaf", "[", "s", "]"}], "+", 
+                RowBox[{"Nf", "[", "s", "]"}]}]}], "}"}], "]"}]}], "}"}], 
+          "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{"Red", ",", 
+            RowBox[{"Arrow", "@", 
+             RowBox[{"Tube", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"gammaf", "[", "s", "]"}], ",", 
+                RowBox[{
+                 RowBox[{"gammaf", "[", "s", "]"}], "+", 
+                 RowBox[{"Tf", "[", "s", "]"}]}]}], "}"}], "]"}]}], ",", 
+            "\[IndentingNewLine]", "Green", ",", 
+            RowBox[{"Arrow", "@", 
+             RowBox[{"Tube", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"gammaf", "[", "s", "]"}], ",", 
+                RowBox[{
+                 RowBox[{"gammaf", "[", "s", "]"}], "+", 
+                 RowBox[{"Nf", "[", "s", "]"}]}]}], "}"}], "]"}]}], ",", 
+            "\[IndentingNewLine]", "Blue", ",", 
+            RowBox[{"Arrow", "@", 
+             RowBox[{"Tube", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"gammaf", "[", "s", "]"}], ",", 
+                RowBox[{
+                 RowBox[{"gammaf", "[", "s", "]"}], "+", 
+                 RowBox[{"Bf", "[", "s", "]"}]}]}], "}"}], "]"}]}]}], 
+           "\[IndentingNewLine]", "}"}], "]"}], ",", "\[IndentingNewLine]", 
          RowBox[{"PlotRange", "->", "All"}], ",", 
-         RowBox[{"ImageSize", "->", "Large"}]}], "\[IndentingNewLine]", "]"}],
-        ",", "\[IndentingNewLine]", 
+         RowBox[{"ImageSize", "->", "Medium"}]}], "\[IndentingNewLine]", 
+        "]"}], ",", "\[IndentingNewLine]", 
        RowBox[{"Show", "[", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"Plot", "[", 
@@ -220,13 +215,12 @@ Cell[BoxData[{
               RowBox[{"s", ",", 
                RowBox[{"torsion", "[", "s", "]"}]}], "}"}], "]"}]}], 
            "\[IndentingNewLine]", "}"}], "]"}], ",", 
-         RowBox[{"ImageSize", "->", "Large"}]}], "\[IndentingNewLine]", 
+         RowBox[{"ImageSize", "->", "Medium"}]}], "\[IndentingNewLine]", 
         "]"}]}], "\[IndentingNewLine]", "}"}], "}"}], "]"}], ",", 
    "\[IndentingNewLine]", 
    RowBox[{"{", 
     RowBox[{"s", ",", "0", ",", "tMax"}], "}"}]}], "\[IndentingNewLine]", 
-  "]"}], "\[IndentingNewLine]", 
- RowBox[{"\[Gamma]f", "[", "\[Pi]", "]"}]}], "Input",
+  "]"}]}], "Input",
  CellChangeTimes->{{3.9822314249819603`*^9, 3.982231428722124*^9}, {
    3.982231495656487*^9, 3.982231657732388*^9}, {3.982231709609707*^9, 
    3.982231764968874*^9}, {3.9822317964847507`*^9, 3.982231899409659*^9}, {
@@ -253,9 +247,18 @@ Cell[BoxData[{
    3.9822400458818197`*^9}, {3.98224009849682*^9, 3.9822401033879642`*^9}, {
    3.982241106101245*^9, 3.9822411085109797`*^9}, {3.98224128162435*^9, 
    3.982241320103415*^9}, {3.9822413873222446`*^9, 3.982241442159952*^9}, {
-   3.9822416393233633`*^9, 3.982241662552186*^9}},
+   3.9822416393233633`*^9, 3.982241662552186*^9}, {3.9826765859439297`*^9, 
+   3.982676609496222*^9}, {3.98267664388792*^9, 3.982676645424778*^9}, {
+   3.98267690889436*^9, 3.98267694142157*^9}, 3.98267713626369*^9, {
+   3.9826771814859047`*^9, 3.982677187988368*^9}, {3.9826772230135527`*^9, 
+   3.9826772680512857`*^9}, {3.982677363867242*^9, 3.9826773786870527`*^9}, {
+   3.982677469669937*^9, 3.982677494432178*^9}, {3.982677530051167*^9, 
+   3.982677623002871*^9}, {3.982677658429822*^9, 3.982677706837448*^9}, 
+   3.98269925127707*^9, {3.982700832866509*^9, 3.98270091189671*^9}, {
+   3.982753684776725*^9, 3.982753701153453*^9}, {3.982753738829207*^9, 
+   3.982753748604714*^9}, {3.982753792645014*^9, 3.9827537928688297`*^9}},
  CellLabel->
-  "In[1291]:=",ExpressionUUID->"cc3eda0f-747e-4b13-9f27-0ccc06c41ded"],
+  "In[131]:=",ExpressionUUID->"cc3eda0f-747e-4b13-9f27-0ccc06c41ded"],
 
 Cell[BoxData[
  TagBox[
@@ -264,9 +267,9 @@ Cell[BoxData[
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`s$$], 0, 4 Pi, ControlType -> Manipulator}}, 
+      Hold[$CellContext`s$$], 0, 1000, ControlType -> Manipulator}}, 
     Typeset`size$$ = {
-    1774.3863584529624`, {714.26806640625, 725.73193359375}}, 
+    1450.3999999999999`, {325.0597536021757, 336.5236207896757}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
     Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
     DynamicBox[Manipulate`ManipulateBoxes[
@@ -280,13 +283,35 @@ Cell[BoxData[
         Typeset`keyframeList$$}, "Body" :> Grid[{{
           Show[
            ParametricPlot3D[
-            $CellContext`\[Gamma]f[$CellContext`t], {$CellContext`t, 
+            $CellContext`gammaf[$CellContext`t], {$CellContext`t, 
              0, $CellContext`tMax}, BoxRatios -> Automatic], 
            Graphics3D[{
              PointSize[0.03], Red, 
              Point[
-              $CellContext`\[Gamma]f[$CellContext`s$$]]}], PlotRange -> All, 
-           ImageSize -> Large], 
+              $CellContext`gammaf[$CellContext`s$$]]}], 
+           Graphics3D[{Black, 
+             Opacity[0.3], 
+             InfinitePlane[{
+               $CellContext`gammaf[$CellContext`s$$], \
+$CellContext`gammaf[$CellContext`s$$] + $CellContext`Tf[$CellContext`s$$], \
+$CellContext`gammaf[$CellContext`s$$] + $CellContext`Nf[$CellContext`s$$]}]}], 
+           Graphics3D[{Red, 
+             Arrow[
+              Tube[{
+                $CellContext`gammaf[$CellContext`s$$], \
+$CellContext`gammaf[$CellContext`s$$] + $CellContext`Tf[$CellContext`s$$]}]], 
+             Green, 
+             Arrow[
+              Tube[{
+                $CellContext`gammaf[$CellContext`s$$], \
+$CellContext`gammaf[$CellContext`s$$] + $CellContext`Nf[$CellContext`s$$]}]], 
+             Blue, 
+             Arrow[
+              Tube[{
+                $CellContext`gammaf[$CellContext`s$$], \
+$CellContext`gammaf[$CellContext`s$$] + \
+$CellContext`Bf[$CellContext`s$$]}]]}], PlotRange -> All, ImageSize -> 
+           Medium], 
           Show[
            Plot[{
              $CellContext`curvature[$CellContext`t], 
@@ -298,10 +323,10 @@ Cell[BoxData[
                $CellContext`curvature[$CellContext`s$$]}], Orange, 
              Point[{$CellContext`s$$, 
                $CellContext`torsion[$CellContext`s$$]}]}], ImageSize -> 
-           Large]}}], "Specifications" :> {{$CellContext`s$$, 0, 4 Pi}}, 
+           Medium]}}], "Specifications" :> {{$CellContext`s$$, 0, 1000}}, 
       "Options" :> {}, "DefaultOptions" :> {}],
      ImageSizeCache->{
-      1864.5863584529623`, {805.6089172363281, 817.0727844238281}},
+      1540.5999999999997`, {416.40060443225383`, 427.86447161975383`}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -324,53 +349,55 @@ Cell[BoxData[
    3.982240098951405*^9, 3.9822401038096857`*^9}, 3.9822411090803328`*^9, {
    3.982241281971674*^9, 3.982241321279936*^9}, {3.982241388641268*^9, 
    3.982241442508733*^9}, {3.982241639607057*^9, 3.982241663074801*^9}, 
-   3.982251899279258*^9},
+   3.982251899279258*^9, {3.9826765800276747`*^9, 3.982676610360346*^9}, 
+   3.982676645828907*^9, 3.98267691297129*^9, 3.982677137260804*^9, 
+   3.982677189130136*^9, 3.982677223560211*^9, {3.9826772603422527`*^9, 
+   3.98267726890195*^9}, {3.9826773678005247`*^9, 3.982677378963591*^9}, {
+   3.9826774782301607`*^9, 3.982677495478674*^9}, {3.9826775535204363`*^9, 
+   3.9826775874995728`*^9}, {3.982677620210783*^9, 3.982677707166378*^9}, {
+   3.98270086312291*^9, 3.982700912381466*^9}, {3.982753687819428*^9, 
+   3.982753717811309*^9}, 3.982753753098022*^9, 3.982753814358706*^9},
  CellLabel->
-  "Out[1299]=",ExpressionUUID->"19f42f62-230b-48ff-8cb1-3e9932574125"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"-", "0.5618511285069043`"}], ",", 
-   RowBox[{"-", "0.5752355524960644`"}], ",", "0.8231029582915577`"}], 
-  "}"}]], "Output",
- CellChangeTimes->{{3.982235521720375*^9, 3.982235548897923*^9}, 
-   3.982235604566957*^9, {3.9822356516656723`*^9, 3.982235672773239*^9}, {
-   3.982235707033215*^9, 3.9822357784767036`*^9}, {3.98223596166578*^9, 
-   3.982236027872959*^9}, {3.982236072551512*^9, 3.982236080888533*^9}, {
-   3.982236152511469*^9, 3.9822361642119827`*^9}, {3.98223620833832*^9, 
-   3.982236261670855*^9}, {3.982236317182066*^9, 3.9822363995463743`*^9}, {
-   3.98223644544213*^9, 3.982236493570857*^9}, {3.982239733005912*^9, 
-   3.9822398162382383`*^9}, 3.982239910122698*^9, {3.982239958756845*^9, 
-   3.98223998977756*^9}, {3.982240024897767*^9, 3.982240046355695*^9}, {
-   3.982240098951405*^9, 3.9822401038096857`*^9}, 3.9822411090803328`*^9, {
-   3.982241281971674*^9, 3.982241321279936*^9}, {3.982241388641268*^9, 
-   3.982241442508733*^9}, {3.982241639607057*^9, 3.982241663074801*^9}, 
-   3.982251899319935*^9},
- CellLabel->
-  "Out[1300]=",ExpressionUUID->"e91bff57-e9b3-48b6-9d4a-ce48e81d0c3a"]
+  "Out[139]=",ExpressionUUID->"323eedbe-1337-4cc1-a843-e1a314977f27"]
 }, Open  ]],
-
-Cell[BoxData["3"], "Input",
- CellChangeTimes->{
-  3.9822414400427628`*^9},ExpressionUUID->"444c9c1d-3584-465f-9d15-\
-a6b5747f4063"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.982233486152525*^9, 3.9822335155410337`*^9}, 
-   3.982233563699958*^9},ExpressionUUID->"a580f222-a503-416d-93f3-\
-87d034da89d7"],
-
-Cell[BoxData["109.81089693570685`"], "Output",
- CellChangeTimes->{{3.9822334967763968`*^9, 3.982233516188273*^9}},
+Cell[BoxData[
+ RowBox[{"gammaf", "[", "tMax", "]"}]], "Input",
+ CellChangeTimes->{
+  3.9822414400427628`*^9, {3.982753723818921*^9, 3.982753731358447*^9}},
  CellLabel->
-  "Out[439]=",ExpressionUUID->"8061d319-d9eb-4411-a3f6-b41e57ade8fd"]
+  "In[140]:=",ExpressionUUID->"444c9c1d-3584-465f-9d15-a6b5747f4063"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.886407745184378`", ",", "0.887209275458463`", ",", "0.`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.982753725742943*^9, 3.982753755511216*^9}, 
+   3.982753820089693*^9},
+ CellLabel->
+  "Out[140]=",ExpressionUUID->"0124dace-25a1-4938-a50d-b23db744395d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Mean", "[", 
+  RowBox[{"{", 
+   RowBox[{"0.886408", ",", "0.887209275458463`"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.982753831010251*^9, 3.982753838006303*^9}},
+ CellLabel->
+  "In[141]:=",ExpressionUUID->"d2471f13-3b67-42c9-8e67-d8d58c678853"],
+
+Cell[BoxData["0.8868086377292315`"], "Output",
+ CellChangeTimes->{3.98275383834774*^9},
+ CellLabel->
+  "Out[141]=",ExpressionUUID->"39c610b4-e649-4b76-8801-b85f0e780a32"]
 }, Open  ]]
 },
-WindowSize->{1512, 921},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowSize->{756, 921},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
 Magnification:>2. Inherited,
 FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
@@ -388,14 +415,16 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 10189, 235, 1774, "Input",ExpressionUUID->"cc3eda0f-747e-4b13-9f27-0ccc06c41ded"],
-Cell[10768, 259, 3503, 69, 1684, "Output",ExpressionUUID->"19f42f62-230b-48ff-8cb1-3e9932574125"],
-Cell[14274, 330, 1164, 20, 66, "Output",ExpressionUUID->"e91bff57-e9b3-48b6-9d4a-ce48e81d0c3a"]
+Cell[576, 22, 10569, 238, 1733, "Input",ExpressionUUID->"cc3eda0f-747e-4b13-9f27-0ccc06c41ded"],
+Cell[11148, 262, 4971, 98, 878, "Output",ExpressionUUID->"323eedbe-1337-4cc1-a843-e1a314977f27"]
 }, Open  ]],
-Cell[15453, 353, 131, 3, 58, "Input",ExpressionUUID->"444c9c1d-3584-465f-9d15-a6b5747f4063"],
 Cell[CellGroupData[{
-Cell[15609, 360, 177, 3, 58, "Input",ExpressionUUID->"a580f222-a503-416d-93f3-87d034da89d7"],
-Cell[15789, 365, 197, 3, 66, "Output",ExpressionUUID->"8061d319-d9eb-4411-a3f6-b41e57ade8fd"]
+Cell[16156, 365, 238, 5, 58, "Input",ExpressionUUID->"444c9c1d-3584-465f-9d15-a6b5747f4063"],
+Cell[16397, 372, 297, 7, 66, "Output",ExpressionUUID->"0124dace-25a1-4938-a50d-b23db744395d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16731, 384, 277, 6, 58, "Input",ExpressionUUID->"d2471f13-3b67-42c9-8e67-d8d58c678853"],
+Cell[17011, 392, 170, 3, 73, "Output",ExpressionUUID->"39c610b4-e649-4b76-8801-b85f0e780a32"]
 }, Open  ]]
 }
 ]

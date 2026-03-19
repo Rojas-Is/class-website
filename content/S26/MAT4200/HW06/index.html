@@ -65,6 +65,9 @@ Tools and resources used: On Exercise 1, I used ChatGPT to help me figure out ho
     Choice Exercise # []
     <span style="font-size: small;">(Practice/applications)</span>
   </summary>
+  <ol>
+    <li>Problem about surfaces.</li>
+  </ol>
 </details>
 
 <details open>
@@ -74,7 +77,15 @@ Tools and resources used: On Exercise 1, I used ChatGPT to help me figure out ho
   </summary>
   <ol>
     <li>Reading</li>
-    <li>Videos</li>
+    <li>
+      Videos
+      <!-- From Austin: https://www.youtube.com/playlist?list=PLgjnaNDtuTTaXZxv2cFZGaX0rh09vhZbi -->
+      <ol>
+        <li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/TvFvL_sMg4g?si=dDrduBJS7MLavQwC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </li>
+      </ol>
+    </li>
   </ol>
 </details>
 
@@ -113,7 +124,96 @@ Tools and resources used: On Exercise 1, I used ChatGPT to help me figure out ho
     <span style="font-size: small;">(proof)</span>
   </summary>
   <p>
-    Prove that the conditions of the Existence and Uniqueness Theorem (for systems of ODEs) is indeed met in the Frenet-Serret setting. Higher dimensional analogs?
+    [From lecture]
+    Prove that the conditions of the Existence and Uniqueness Theorem (for systems of ODEs) are indeed met in the Frenet-Serret setting. Higher dimensional analogs?
+  </p>
+</details>
+
+<pre><code>curvature[s_]:=s;
+torsion[s_]:=s/10;(* When \[Tau]=0, you have to use the hack that \[Tau] = {0,0,0}; *)
+tMax=11;
+deqSol=NDSolve[
+  {
+    gamma'[t]==Tv[t],
+    Tv'[t]==curvature[t]*Nv[t],
+    Nv'[t]==-curvature[t]*Tv[t] + torsion[t]*Bv[t],
+    Bv'[t]==-torsion[t]*Nv[t],
+    Tv[0]==Normalize[{0,1,1}],
+    Nv[0]==Normalize[{1,0,0}],
+    Bv[0]==Normalize[{0,-1,1}],
+    gamma[0]=={0,0,0}
+  },{gamma,Tv,Nv,Bv},{t,0,tMax},AccuracyGoal->10
+][[1]];
+gammaf=gamma/.deqSol;
+Tf=Tv/.deqSol;
+Nf=Nv/.deqSol;
+Bf=Bv/.deqSol;
+Manipulate[
+  Grid[&#123;&#123;
+    Show[
+      ParametricPlot3D[gammaf[t],{t,0,tMax},BoxRatios->Automatic],
+      Graphics3D[{PointSize[0.03],Red,Point[gammaf[s]]}],
+      Graphics3D[{
+        Black,Opacity[0.3],
+        InfinitePlane[{gammaf[s],gammaf[s]+Tf[s],gammaf[s]+Nf[s]}]
+      }],
+      Graphics3D[{
+        Red,Arrow@Tube[{gammaf[s],gammaf[s]+Tf[s]}],
+        Green,Arrow@Tube[{gammaf[s],gammaf[s]+Nf[s]}],
+        Blue,Arrow@Tube[{gammaf[s],gammaf[s]+Bf[s]}]
+      }],
+      PlotRange->All,ImageSize->Medium
+    ],
+    Show[
+      Plot[{curvature[t],torsion[t]},{t,0,tMax}],
+      Graphics[{
+        PointSize[0.02],
+        Blue,Point[{s,curvature[s]}],
+        Orange,Point[{s,torsion[s]}]
+      }],ImageSize->Medium
+    ]
+  &#125;&#125;],
+  {s,0,tMax}
+]</code></pre>
+
+<details open>
+    <summary>
+    Choice Exercise X []
+    <span style="font-size: small;">(...)</span>
+  </summary>
+  <p>
+    What does the 2D curve with (signed) curvature of $\kappa(s) = s$ converge to as $s \to \infty$. (Euler spiral) Or maybe the globe map trick.
+  </p>
+</details>
+
+
+<details open>
+    <summary>
+    Choice Exercise X []
+    <span style="font-size: small;">(...)</span>
+  </summary>
+  <p>
+    Catenary problem either with chain or with bicycle.
+  </p>
+</details>
+
+<details open>
+    <summary>
+    Choice Exercise X []
+    <span style="font-size: small;">(...)</span>
+  </summary>
+  <p>
+    Given approximations of E, F, and G, can you determine an embedding that satisfies this?
+  </p>
+</details>
+
+<details open>
+    <summary>
+    Choice Exercise X []
+    <span style="font-size: small;">(Play)</span>
+  </summary>
+  <p>
+    Choose some functions for $\kappa(s)$ and $\tau(s)$ and try to guess what the resulting curve will be. How did the curve surprise you, and why did it do something different from what you expected?
   </p>
 </details>
 

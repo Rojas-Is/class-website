@@ -1,0 +1,68 @@
+<p>
+  Do either (or both) of the problems about the <i>free group on \(n\) generators</i> denoted \[
+    F_n = \langle g_1, g_2, \dots, g_n \rangle
+  \] which is a group presentation with <i>no</i> relations. For example, if \(n = 2\), then an example element of \(F_2 \cong \langle a, b \rangle\) is \(a^3b^{-1}a^{-4}b^{-1}a^2\).
+</p>
+<ol>
+  <li>[5]
+    This first part of this problem is about understanding the Cayley diagram of the free group \(F_2\), just because it's cool!
+    The free group is an infinite group, but (a finite chunk of) the Cayley diagram for \(F_2\) looks like this fractal (if we ignore the colors and directions of arrows):
+    <figure class="standalone">
+      <img src="/assets/S26/MAT4170/HW07/freeGroup.min.svg" alt="Cayley diagram of (part of) the free group F_2">
+      <figcaption>
+        A Cayley diagram based on TikZ code from <a href="https://tex.stackexchange.com/a/223033/153535">TeX Stack Exchange user Paul Gaborit</a>.
+      </figcaption>
+    </figure>
+    <ol>
+      <li>
+        Draw a bit of the (infinite) Cayley diagram for \(F_2\) using the generators \(a\) and \(b\), (along with "backward" arrows for \(a^{-1}\) and \(b^{-1}\).) Make sure to include at least the elements \(\{e, a, a^{-1}, b, b^{-1}, a^2, ab, ab^{-1}\}\).
+      </li>
+      <li>
+        Write a bit about how your picture does (or does not) correspond to the image above.
+      </li>
+      <li>
+        Choose three vertices in the image above, at least one of which is on the "boundary" of the graph, and say which elements of \(F_2\) each corresponds to.
+      </li>
+      <li>
+        What does the Cayley graph for the free group on one generator look like?
+      </li>
+      <li>
+        What do you think the Cayley graph for the free group on three generators might look like?
+      </li>
+    </ol>
+  </li>
+  <li>[5]
+    In this part, you'll study some subgroups and quotient groups of this group, which might not be as hard as you expect!
+    <ol>
+      <li>
+        Write some elements of the cyclic subgroup \(H = \langle ab \rangle \leq F_2\).
+      </li>
+      <li>
+        Is \(H \triangleleft F_2\)? Why or why not?
+      </li>
+      <li>
+        Consider the map \(\varphi \colon F_2 \to D_3\) by \(\varphi(a) = r\) and \(\varphi(b) = f\). Is this map a homomorphism? An isomorphism?
+      </li>
+      <li>
+        What is the image of \(\varphi\)?
+      </li>
+      <li>
+        Without explicitly describing \(\ker(\varphi)\), what does the first isomorphism have to say about the quotient group \(F_2/\ker(\varphi)\)?
+      </li>
+    </ol>
+  </li>
+  <li>
+    In this part, you will make images and 3D models of Cayley graph for (part of) the free groups $F_2$ and $F_3$, in the style of the image above.
+    <ol>
+      <li>[5]
+        Reproduce the image above (or something essentially similar to it), and be sure to include your code. In the image, this is all words in the $F_2$ that can be written with five or fewer letters. What does it look like if you include all words that can be written with eight or fewer letters? Is it exactly like what you expected?
+      </li>
+      <li>[1]
+        Guess at what you think the 3D Cayley graph will look like.
+      </li>
+      <li>[5]
+        Make a 3D object in Mathematica or another program that corresponds to the 3D Cayley graph. How is it similar to or different from what you expected?
+      </li>
+    </ol>
+  </li>
+</ol>
